@@ -1,1 +1,1 @@
-"# node-mysql-crud-app" 
+Run: npm start
