@@ -1,0 +1,24 @@
+.page-wrapper {
+  min-height: 100vh; }
+
+.page-container {
+  margin-left: 270px;
+  transition: 0.3s all ease-in-out; }
+
+.sidebar {
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 270px;
+  bottom: 0;
+  background-color: green;
+  transition: 0.3s all ease-in-out; }
+
+@media screen and (max-width: 792px) {
+  .sidebar {
+    left: -270px;
+    transition: 0.3s all ease-in-out; }
+  .page-container {
+    margin-left: 0px;
+    transition: 0.3s all ease-in-out; } }

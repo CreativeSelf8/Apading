@@ -1,6 +1,7 @@
 const express = require('express');
 const fileUpload = require('express-fileupload');
 const bodyParser = require('body-parser');
+const morgan = require('morgan')
 const mysql = require('mysql2');
 const path = require('path');
 require('dotenv').config()
@@ -15,7 +16,7 @@ const { DATABASE, DB_HOST, DB_PORT, DB_USER, DB_PASS, PORT } = process.env;
 
 // create connection to database
 // the mysql.createConnection function takes in a configuration object which contains host, user, password and the database name.
-const db = mysql.createConnection ({
+const db = mysql.createConnection({
     host: DB_HOST,
     user: DB_USER,
     password: DB_PASS,
@@ -37,6 +38,7 @@ global.db = db;
 app.set('port', PORT); // set express to use this port
 app.set('views', __dirname + '/views'); // set express to look in this folder to render our view
 app.set('view engine', 'ejs'); // configure template engine
+app.use(morgan('combined'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); // parse form data client
 app.use(express.static(path.join(__dirname, 'public'))); // configure express to use public folder
@@ -45,7 +47,7 @@ app.use(fileUpload()); // configure fileupload
 // routes for the app
 app.use('/', homeRoutes);
 app.use('/player', playerRoutes);
-app.get('*', function(req, res, next){
+app.get('*', function(req, res, next) {
     res.status(404);
 
     res.render('404.ejs', {

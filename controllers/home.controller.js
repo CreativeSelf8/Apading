@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 exports.getHomePage = (req, res) => {
-    let query = "SELECT * FROM `players` ORDER BY id ASC"; // query database to get all the players
+    let query = "SELECT * FROM `admin` ORDER BY id ASC"; // query database to get all the players
 
     // execute query
     db.query(query, (err, result) => {
@@ -11,7 +11,7 @@ exports.getHomePage = (req, res) => {
 
         res.render('index.ejs', {
             title: "Welcome to Socka | View Players",
-            players: result
+            admins: result
         });
     });
 };

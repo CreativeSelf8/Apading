@@ -4,7 +4,8 @@
     "description": "",
     "main": "app.js",
     "scripts": {
-        "start": "nodemon app.js",
+        "start": "nodemon --inspect app.js",
+        "watch": "node-sass --watch resources/scss/ --output public/assets/css",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [],
@@ -15,10 +16,14 @@
         "dotenv": "^8.2.0",
         "ejs": "^2.6.1",
         "express": "^4.16.3",
-        "express-fileupload": "^0.4.0",
+        "express-fileupload": "^1.2.1",
         "mysql": "^2.18.1",
         "mysql2": "^2.2.5",
-        "nodemon": "^2.0.7",
+        "node-sass": "^5.0.0",
         "req-flash": "0.0.3"
+    },
+    "devDependencies": {
+        "morgan": "^1.10.0",
+        "nodemon": "^2.0.7"
     }
 }

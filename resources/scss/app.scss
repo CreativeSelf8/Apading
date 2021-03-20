@@ -1,0 +1,14 @@
+@import "variables";
+@import "main";
+@import "navbar";
+@import "sidebar";
+@media screen and (max-width: 792px) {
+    .sidebar {
+        left: -270px;
+        transition: 0.3s all ease-in-out;
+    }
+    .page-container {
+        margin-left: 0px;
+        transition: 0.3s all ease-in-out;
+    }
+}
