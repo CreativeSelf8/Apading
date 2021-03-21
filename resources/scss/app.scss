@@ -2,6 +2,12 @@
 @import "main";
 @import "navbar";
 @import "sidebar";
+// global css
+input,
+textarea:focus {
+    outline: none;
+}
+
 @media screen and (max-width: 792px) {
     .sidebar {
         left: -270px;
