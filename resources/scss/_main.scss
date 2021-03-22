@@ -1,14 +1,21 @@
 .page-wrapper {
     min-height: 100vh;
+    background-color: $white;
 }
 
 .page-container {
-    padding-left: 270px;
-    position: relative;
-    width: 100%;
+    padding-left: 295px;
+    padding-right: 25px;
     transition: 0.5s all ease-in-out;
-    .sidebar-collapse {
-        padding-left: 0px;
+    &.page-expanded {
+        padding-left: 25px;
         transition: 0.5s all ease-in-out;
     }
+}
+
+.content-wrapper {
+    margin-top: 105px;
+    background-color: $white;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }

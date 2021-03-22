@@ -1,12 +1,12 @@
 const Rent = require('../models/Rent.model')
-exports.getList = async(req, res, next) => {
-    try {
-        let rentList = await Rent.getAll()
-        res.render('index.ejs', {
-            admins: rentList,
-            title: 'Rent'
+exports.getList = async function(req, res, next) {
+    let data = await Rent.getAll()
+    if (data) {
+        res.render('rent.ejs', {
+            title: 'Rent',
+            admins: data
         })
-    } catch (error) {
-        console.log(error);
+    } else {
+        res.redirect('/')
     }
 }

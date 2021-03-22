@@ -1,9 +1,11 @@
 var data = [];
 exports.getAll = function() {
-    // let query = "SELECT * FROM `admin` ORDER BY id ASC";
-    db.query("SELECT * FROM `admin` ORDER BY id ASC", (err, result) => {
-        data = result
-    });
-    console.log('data', data);
-    return data;
+    return new Promise((resolve, reject) => {
+        db.query("SELECT * FROM `user` ORDER BY id ASC", function(err, result) {
+            if (err) {
+                return reject(err);
+            }
+            resolve(result)
+        })
+    })
 }
