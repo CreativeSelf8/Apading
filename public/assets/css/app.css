@@ -2,8 +2,27 @@
   min-height: 100vh; }
 
 .page-container {
-  margin-left: 270px;
-  transition: 0.3s all ease-in-out; }
+  padding-left: 270px;
+  position: relative;
+  width: 100%;
+  transition: 0.5s all ease-in-out; }
+  .page-container .sidebar-collapse {
+    padding-left: 0px;
+    transition: 0.5s all ease-in-out; }
+
+.navbar {
+  height: 70px;
+  background-color: white;
+  color: #5f5e5e;
+  position: fixed;
+  right: 0;
+  left: 270px;
+  top: 0;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  transition: 0.5s all ease-in-out; }
+
+.navbar-expanded {
+  left: 0px; }
 
 .sidebar {
   position: fixed;
@@ -13,7 +32,23 @@
   bottom: 0;
   color: white;
   background-color: #183055;
-  transition: 0.3s all ease-in-out; }
+  border-right: 2px solid #3e4b5f;
+  transition: 0.5s all ease-in-out; }
+  .sidebar .sidebar-logo {
+    height: 65px; }
+  .sidebar .img-logo {
+    width: 50px; }
+  .sidebar .sidebar-brand {
+    font-size: 24px;
+    text-transform: uppercase; }
+
+.sidebar-collapse {
+  left: -270px;
+  transition: 0.5s all ease-in-out; }
+  .sidebar-collapse .sidebar-brand,
+  .sidebar-collapse .search-bar,
+  .sidebar-collapse .collapse-tab {
+    display: none !important; }
 
 .search-bar {
   margin: 10px;
@@ -53,6 +88,11 @@
     margin-right: 8px; }
   .sidebar-item:hover, .sidebar-item:focus {
     color: #1769e4; }
+
+.sidebar-toggler {
+  align-self: center;
+  font-size: 24px;
+  margin-bottom: 40px; }
 
 input,
 textarea:focus {

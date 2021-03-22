@@ -8,7 +8,7 @@ require('dotenv').config()
 
 const app = express();
 
-const playerRoutes = require('./routes/player.routes');
+const rentRoutes = require('./routes/rent.routes');
 const homeRoutes = require('./routes/index.routes');
 
 const { DATABASE, DB_HOST, DB_PORT, DB_USER, DB_PASS, PORT } = process.env;
@@ -46,7 +46,7 @@ app.use(fileUpload()); // configure fileupload
 
 // routes for the app
 app.use('/', homeRoutes);
-app.use('/player', playerRoutes);
+app.use('/rent', rentRoutes);
 app.get('*', function(req, res, next) {
     res.status(404);
 

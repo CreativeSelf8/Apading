@@ -6,7 +6,28 @@
     bottom: 0;
     color: $white;
     background-color: $dark-blue;
-    transition: 0.3s all ease-in-out;
+    border-right: 2px solid $dark-blue-border;
+    transition: 0.5s all ease-in-out;
+    .sidebar-logo {
+        height: 65px;
+    }
+    .img-logo {
+        width: 50px;
+    }
+    .sidebar-brand {
+        font-size: 24px;
+        text-transform: uppercase;
+    }
+}
+
+.sidebar-collapse {
+    left: -270px;
+    .sidebar-brand,
+    .search-bar,
+    .collapse-tab {
+        display: none !important;
+    }
+    transition: 0.5s all ease-in-out;
 }
 
 .search-bar {
@@ -58,4 +79,10 @@
     &:focus {
         color: $blue;
     }
+}
+
+.sidebar-toggler {
+    align-self: center;
+    font-size: 24px;
+    margin-bottom: 40px;
 }

@@ -22,8 +22,8 @@
 
     <div class="page-wrapper">
         <%- include('partials/sidebar') %>
-            <div class="page-container col-md-9 col-lg-9">
-                <%- include('partials/header') %>
+            <div class="page-container">
+                <%- include('partials/navbar') %>
                     <div class="content-wrapper">
                         <% if (admins.length> 0) { %>
                             <table class="table table-hovered">
@@ -45,7 +45,7 @@
                                             <th scope="row">
                                                 <%= player.id %>
                                             </th>
-                                            <td><img src="/assets/img/<%= player.image %>" class="rounded-circle player-img" alt="">
+                                            <td><img src="/assets/img/logotemp" class="rounded-circle player-img" alt="">
                                             </td>
                                             <td>
                                                 <span class="test">

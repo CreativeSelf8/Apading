@@ -3,6 +3,12 @@
 }
 
 .page-container {
-    margin-left: 270px;
-    transition: 0.3s all ease-in-out;
+    padding-left: 270px;
+    position: relative;
+    width: 100%;
+    transition: 0.5s all ease-in-out;
+    .sidebar-collapse {
+        padding-left: 0px;
+        transition: 0.5s all ease-in-out;
+    }
 }
