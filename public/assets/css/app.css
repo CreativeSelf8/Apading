@@ -14,7 +14,9 @@
   margin-top: 105px;
   background-color: white;
   width: 100%;
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; }
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  padding: 10px 15px;
+  border-radius: 8px; }
 
 .navbar {
   height: 70px;
@@ -99,6 +101,21 @@
   align-self: center;
   font-size: 24px;
   margin-bottom: 40px; }
+
+.img-post {
+  width: 100px; }
+
+.select-number span {
+  font-weight: bold;
+  margin-right: 5px; }
+
+.content-header {
+  margin-bottom: 10px; }
+
+.button-add {
+  background-color: #183055;
+  border: none;
+  cursor: pointer; }
 
 input,
 textarea:focus {
