@@ -19,12 +19,10 @@ exports.getFormAdd = function(req, res, next) {
 }
 exports.getFormUpdate = function(req, res, next) {
     let query = "SELECT * FROM `post` WHERE id = " + req.params.id + ""
-    console.log('query', query);
     db.query(query, (err, result) => {
         if (err) {
             throw (err)
         }
-        console.log('res', result);
         res.render('admin/posts/update-post.ejs', {
             title: 'Update post',
             post: result[0]
@@ -68,7 +66,6 @@ exports.deletePost = function(req, res, next) {
     try {
         let postId = req.params.id
         let query = 'DELETE FROM `post` WHERE id = ' + postId
-        console.log(query);
         db.query(query, function(err, result) {
             if (err) {
                 throw (err)
@@ -99,7 +96,6 @@ exports.updatePost = function(req, res, next) {
         ]
         let query = "UPDATE post SET name=?, name_en=?, name_ko=?,name_ch=?,name_ja=?,slug=?,img=?,description=?,content=?,content_en=?,content_ch=?,content_ko=?,content_ja=?,type=?,updated_at=? WHERE id= " + req.params.id + "";
         db.query(query, data, (err, results) => {
-            console.log('query', query);
             if (err) {
                 throw (err)
             }

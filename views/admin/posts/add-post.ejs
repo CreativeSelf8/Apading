@@ -11,8 +11,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
     <link rel="stylesheet" href="/assets/css/admin/app.css">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <script src="/assets/js/admin/index.js"></script>
-    <script src="/assets/js/admin/post.js"></script>
+    <script src="/assets/js/admin/editor.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
     <title>
         <%= title %>
@@ -25,7 +27,7 @@
             <div class="page-container">
                 <%- include('../../partials/admin-navbar') %>
                     <div class="content-wrapper ">
-                        <form action="/admin/post/add" method="POST" class="d-flex flex-column">
+                        <form action="/admin/post/add" method="POST" class="d-flex flex-column" name="editor">
                             <label>Name</label>
                             <input type="text" name="name" required>
                             <label>Name (Eng)</label>
@@ -41,15 +43,20 @@
                             <label>Img</label>
                             <input type="text" name="img" required>
                             <label>Content</label>
-                            <textarea name="content" required></textarea>
+                            <div id="editor"></div>
+                            <input type="hidden" name="content">
                             <label>Content Eng</label>
-                            <textarea name="content_en" required></textarea>
+                            <div id="editor-en"></div>
+                            <input type="hidden" name="content_en">
                             <label>Content Kor</label>
-                            <textarea name="content_ko" required></textarea>
+                            <div id="editor-ko"></div>
+                            <input type="hidden" name="content_ko">
                             <label>Content China</label>
-                            <textarea name="content_ch" required></textarea>
+                            <div id="editor-ch"></div>
+                            <input type="hidden" name="content_ch">
                             <label>Content Kor</label>
-                            <textarea name="content_ja" required></textarea>
+                            <div id="editor-ja"></div>
+                            <input type="hidden" name="content_ja">
                             <label>Type</label>
                             <input name="type" required type="number">
                             <button type="submit">Submit</button>
