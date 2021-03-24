@@ -94,8 +94,12 @@
   padding: 10px 20px; }
   .sidebar-item i {
     margin-right: 8px; }
-  .sidebar-item:hover, .sidebar-item:focus {
+  .sidebar-item:hover, .sidebar-item:focus,
+  .sidebar-item:hover .siderbar-link {
     color: #1769e4; }
+  .sidebar-item .siderbar-link {
+    color: white;
+    text-decoration: none; }
 
 .sidebar-toggler {
   align-self: center;

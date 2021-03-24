@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/admin/app.css">
+    <script src="/assets/js/admin/index.js"></script>
+    <script src="/assets/js/admin/post.js"></script>
+
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <%- include('../../partials/admin-sidebar') %>
+            <div class="page-container">
+                <%- include('../../partials/admin-navbar') %>
+                    <div class="content-wrapper ">
+                        <form action="/admin/post/add" method="POST" class="d-flex flex-column">
+                            <label>Name</label>
+                            <input type="text" name="name" required>
+                            <label>Name (Eng)</label>
+                            <input type="text" name="name_en" required>
+                            <label>Name (Kor)</label>
+                            <input type="text" name="name_ko" required>
+                            <label>Name (China)</label>
+                            <input type="text" name="name_ch" required>
+                            <label>Name (Ja)</label>
+                            <input type="text" name="name_ja" required>
+                            <label>Slug</label>
+                            <input type="text" name="slug" required>
+                            <label>Img</label>
+                            <input type="text" name="img" required>
+                            <label>Content</label>
+                            <textarea name="content" required></textarea>
+                            <label>Content Eng</label>
+                            <textarea name="content_en" required></textarea>
+                            <label>Content Kor</label>
+                            <textarea name="content_ko" required></textarea>
+                            <label>Content China</label>
+                            <textarea name="content_ch" required></textarea>
+                            <label>Content Kor</label>
+                            <textarea name="content_ja" required></textarea>
+                            <label>Type</label>
+                            <input name="type" required type="number">
+                            <button type="submit">Submit</button>
+                        </form>
+
+                    </div>
+            </div>
+    </div>
+</body>
+
+</html>

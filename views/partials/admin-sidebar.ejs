@@ -1,11 +1,11 @@
 <div class="sidebar d-flex flex-column justify-content-between">
     <div class="sidebar-content">
         <div class="sidebar-logo d-flex align-items-center justify-content-center">
-            <img src="/assets/img/logotemp.png" alt="logo" class="img-logo">
+            <img src="/assets/img/logotemp.png" alt="logo" class="img-logo" />
             <span class="sidebar-brand">Apading</span>
         </div>
         <form method="get" class="d-flex search-bar align-items-center justify-content-between">
-            <input type="text" placeholder="Search..." class="sidebar-search">
+            <input type="text" placeholder="Search..." class="sidebar-search" />
             <i class="fas fa-search search-icon"></i>
         </form>
         <div>
@@ -14,14 +14,17 @@
                 <i class="fas fa-caret-down"></i>
             </div>
             <div class="collapse" id="sidebar-tab1">
-                <div class="sidebar-item d-flex  align-items-center">
+                <div class="sidebar-item d-flex align-items-center">
                     <i class="fas fa-plus-circle"></i>
-                    <span>Tạo tin mới</span>
+                    <a href="/admin/post/add" class="siderbar-link">
+                        <span>Tạo tin mới</span>
+                    </a>
                 </div>
-                <div class="sidebar-item d-flex  align-items-center">
+                <div class="sidebar-item d-flex align-items-center">
                     <i class="fas fa-stream"></i>
-                    <span>Danh sách tin tức</span>
-
+                    <a href="/admin/post" class="siderbar-link">
+                        <span>Danh sách tin tức</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -31,13 +34,17 @@
                 <i class="fas fa-caret-down"></i>
             </div>
             <div class="collapse" id="sidebar-tab2">
-                <div class="sidebar-item d-flex  align-items-center">
+                <div class="sidebar-item d-flex align-items-center">
                     <i class="fas fa-plus-circle"></i>
-                    <span>Tạo bài đăng mới</span>
+                    <a href="/admin/rent/add" class="siderbar-link">
+                        <span>Tạo bài đăng mới</span>
+                    </a>
                 </div>
-                <div class="sidebar-item d-flex  align-items-center">
+                <div class="sidebar-item d-flex align-items-center">
                     <i class="fas fa-stream"></i>
-                    <span>Danh sách căn hộ cho thuê</span>
+                    <a href="/admin/rent" class="siderbar-link">
+                        <span>Danh sách căn hộ cho thuê</span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -47,18 +54,22 @@
                 <i class="fas fa-caret-down"></i>
             </div>
             <div class="collapse" id="sidebar-tab3">
-                <div class="sidebar-item d-flex  align-items-center">
+                <div class="sidebar-item d-flex align-items-center">
                     <i class="fas fa-plus-circle"></i>
-                    <span>Tạo bài đăng mới</span>
-                </div>
-                <div class="sidebar-item d-flex  align-items-center">
-                    <i class="fas fa-stream"></i>
-                    <span>Danh sách căn hộ bán</span>
 
+                    <a href="/admin/house/add" class="siderbar-link">
+                        <span>Tạo bài đăng mới</span>
+                    </a>
+                </div>
+                <div class="sidebar-item d-flex align-items-center">
+                    <i class="fas fa-stream"></i>
+                    <a href="/admin/house" class="siderbar-link">
+                        <span>Danh sách căn hộ bán</span>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-    <i class="fas fa-arrow-circle-left sidebar-toggler"></i>
 
+    <i class="fas fa-arrow-circle-left sidebar-toggler"></i>
 </div>

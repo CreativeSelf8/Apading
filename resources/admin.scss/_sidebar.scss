@@ -76,8 +76,13 @@
         margin-right: 8px;
     }
     &:hover,
-    &:focus {
+    &:focus,
+    &:hover .siderbar-link {
         color: $blue;
+    }
+    .siderbar-link {
+        color: $white;
+        text-decoration: none;
     }
 }
 

@@ -2,14 +2,15 @@ const express = require('express');
 const fileUpload = require('express-fileupload');
 const bodyParser = require('body-parser');
 const morgan = require('morgan')
+var methodOverride = require('method-override')
 const mysql = require('mysql2');
 const path = require('path');
 require('dotenv').config()
 
 const app = express();
 
-const postRoutes = require('./routes/post.routes');
-const homeRoutes = require('./routes/index.routes');
+const postRoutes = require('./routes/admin/post.routes');
+const homeRoutes = require('./routes/admin/index.routes');
 
 const { DATABASE, DB_HOST, DB_PORT, DB_USER, DB_PASS, PORT } = process.env;
 
@@ -39,14 +40,15 @@ app.set('port', PORT); // set express to use this port
 app.set('views', __dirname + '/views'); // set express to look in this folder to render our view
 app.set('view engine', 'ejs'); // configure template engine
 app.use(morgan('combined'));
+app.use(methodOverride('_method'))
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); // parse form data client
 app.use(express.static(path.join(__dirname, 'public'))); // configure express to use public folder
 app.use(fileUpload()); // configure fileupload
 
 // routes for the app
-app.use('/', homeRoutes);
-app.use('/post', postRoutes);
+app.use('/admin', homeRoutes);
+app.use('/admin/post', postRoutes);
 app.get('*', function(req, res, next) {
     res.status(404);
 
