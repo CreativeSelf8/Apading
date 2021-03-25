@@ -1,0 +1,231 @@
+.footer_up {
+    height: 300px;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 30px;
+    background-color: #e4eef0;
+}
+
+.app{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.app .text {
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.app .image {
+    display: flex;
+    justify-content: center;
+}
+
+.app .image img {
+    border: 2px solid white;
+    border-radius: 8px;
+    width: 140px;
+}
+
+.app .image a:nth-child(1) img {
+    margin-right: 30px;
+}
+
+.email{
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 20px;
+}
+
+.email .text {
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+
+@media screen and (max-width: 768px) {
+    .email .input {
+        display: flex;
+        justify-content: space-between;
+        background-color: #ffa21d;
+        text-align: center;
+        width: 280px;
+        height: 40px;
+        border-radius: 5px;
+        margin: auto;
+    }
+    .email .text {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    .app .text {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    .logo_brand {
+        padding: unset !important;
+        margin-top: 10px;
+    }
+    .logo_brand img {
+        width: 70px !important;
+        height: 25px;
+    }
+    .communication,
+    .tutorial,
+    .rule,
+    .zone {
+        margin-top: 20px !important;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #b2b2b2;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .email .input {
+        display: flex;
+        justify-content: space-between;
+        background-color: #ffa21d;
+        text-align: center;
+        width: 500px;
+        height: 40px;
+        border-radius: 5px;
+        margin: auto;
+    }
+    .email .text {
+        margin-top: 90px;
+        margin-bottom: 40px;
+    }
+    .app .text {
+        margin-top: 90px;
+        margin-bottom: 40px;
+    }
+}
+
+.email .input input {
+    width: 90%;
+    padding-left: 30px;
+    border: unset;
+    border-radius: 5px;
+}
+
+.email .input button {
+    width: 60px;
+    color: white;
+    border: unset;
+    background-color: #ffa21d;
+    border-radius: 5px;
+}
+
+.footer_down {
+    display: flex;
+    justify-content: space-around;
+    background-color: #5a5b5b;
+}
+
+.footer_down ul {
+    list-style: none;
+    margin: 0;
+}
+
+.footer_down ul li {
+    padding: 7px 0;
+}
+
+.footer_down a {
+    text-decoration: none;
+    color: #d3d3d3;
+}
+
+.footer_down .communication {
+    color: #d3d3d3;
+}
+
+.communication img {
+    transform: scale(0.7);
+    transform-origin: left;
+    float: left;
+}
+
+.communication .name_company {
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 20px;
+}
+
+.communication .address~.email~.phone {
+    display: flex;
+    align-items: flex-start;
+    margin: 5px 0;
+}
+
+.communication .address{
+    align-items: flex-start;
+}
+
+.communication .address_company {
+    padding-left: 5px;
+    padding-right: 21px;
+}
+
+.communication .email,
+.phone {
+    display: flex;
+    align-items: center;
+}
+
+.communication .icon {
+    display: flex;
+    align-items: center;
+}
+
+.communication .email{
+    padding: 0;
+}
+
+.zone .list_zone {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer_down .tutorial,
+.rule,
+.zone {
+    margin-top: 100px;
+    color: white;
+}
+
+.footer_down .title_name {
+    font-weight: 600;
+    margin-bottom: 27px;
+}
+
+.logo_brand {
+    display: flex;
+    justify-content: space-around;
+    background-color: #5a5b5b;
+    text-align: center;
+    padding: 20px 100px;
+}
+
+.logo_brand div {
+    display: flex;
+    align-items: center;
+}
+
+.logo_brand img {
+    width: 150px;
+    height: auto;
+}
+
+.copyright {
+    display: block;
+    padding-bottom: 20px;
+    text-align: center;
+    color: white;
+}
