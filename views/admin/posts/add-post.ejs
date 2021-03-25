@@ -27,39 +27,60 @@
             <div class="page-container">
                 <%- include('../../partials/admin-navbar') %>
                     <div class="content-wrapper ">
-                        <form action="/admin/post/add" method="POST" class="d-flex flex-column" name="editor">
-                            <label>Name</label>
-                            <input type="text" name="name" required>
-                            <label>Name (Eng)</label>
-                            <input type="text" name="name_en" required>
-                            <label>Name (Kor)</label>
-                            <input type="text" name="name_ko" required>
-                            <label>Name (China)</label>
-                            <input type="text" name="name_ch" required>
-                            <label>Name (Ja)</label>
-                            <input type="text" name="name_ja" required>
-                            <label>Slug</label>
-                            <input type="text" name="slug" required>
-                            <label>Img</label>
-                            <input type="text" name="img" required>
-                            <label>Content</label>
-                            <div id="editor"></div>
-                            <input type="hidden" name="content">
-                            <label>Content Eng</label>
-                            <div id="editor-en"></div>
-                            <input type="hidden" name="content_en">
-                            <label>Content Kor</label>
-                            <div id="editor-ko"></div>
-                            <input type="hidden" name="content_ko">
-                            <label>Content China</label>
-                            <div id="editor-ch"></div>
-                            <input type="hidden" name="content_ch">
-                            <label>Content Kor</label>
-                            <div id="editor-ja"></div>
-                            <input type="hidden" name="content_ja">
-                            <label>Type</label>
-                            <input name="type" required type="number">
-                            <button type="submit">Submit</button>
+                        <h1>Tạo tin tức
+                        </h1>
+                        <form action="/admin/post/add" method="POST" class="d-flex" name="editor">
+                            <div class="d-flex flex-column">
+                                <label>Name</label>
+                                <input type="text" name="name" required>
+                                <label>Name (Eng)</label>
+                                <input type="text" name="name_en" required>
+                                <label>Name (Kor)</label>
+                                <input type="text" name="name_ko" required>
+                                <label>Name (China)</label>
+                                <input type="text" name="name_ch" required>
+                                <label>Name (Ja)</label>
+                                <input type="text" name="name_ja" required>
+                                <label>Slug</label>
+                                <input type="text" name="slug" required>
+                                <label>Content</label>
+                                <div id="editor"></div>
+                                <input type="hidden" name="content">
+                                <label>Content (English)</label>
+                                <div id="editor-en"></div>
+                                <input type="hidden" name="content_en">
+                                <label>Content (Korean)</label>
+                                <div id="editor-ko"></div>
+                                <input type="hidden" name="content_ko">
+                                <label>Content (China)</label>
+                                <div id="editor-ch"></div>
+                                <input type="hidden" name="content_ch">
+                                <label>Content (Japan)</label>
+                                <div id="editor-ja"></div>
+                                <input type="hidden" name="content_ja">
+
+                                <button type="submit">Submit</button>
+                            </div>
+                            <div class="d-flex flex-column">
+                                <label>Hình ảnh </label>
+                                <input type="text" name="img" required>
+                                <label>Loại</label>
+                                <select name="type">
+                                    <option value="" disabled selected>Loại...</option>
+                                    <option value="1">Nổi bật</option>
+                                    <option value="0">Bình thường</option>
+                                </select>
+                                <label>Mô tả ngắn</label>
+                                <textarea name="description"></textarea>
+                                <label>Mô tả ngắn (English)</label>
+                                <textarea name="description_en"></textarea>
+                                <label>Mô tả ngắn (China)</label>
+                                <textarea name="description_ch"></textarea>
+                                <label>Mô tả ngắn (Korean)</label>
+                                <textarea name="description_ko"></textarea>
+                                <label>Mô tả ngắn (Japan)</label>
+                                <textarea name="description_ja"></textarea>
+                            </div>
                         </form>
 
                     </div>

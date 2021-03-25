@@ -37,7 +37,7 @@
                 </select>
                                 </form>
                             </div>
-                            <a href="/admin/post/add">
+                            <a href="/admin/house/add">
                                 <button class="btn btn-primary button-add">Thêm mới</button>
                             </a>
                         </div>
@@ -88,7 +88,7 @@
                                                 <%= post.created_at %>
                                             </td>
                                             <td>
-                                                <a href="/admin/post/update/<%= post.id  %>">
+                                                <a href="/admin/house/update/<%= post.id  %>">
                                                     <button class="btn btn-success">Sửa</button>
                                                 </a>
 
@@ -138,16 +138,6 @@
     </div>
 </body>
 <script>
-    $("#delete-post-modal").on("show.bs.modal", function(event) {
-        var button = $(event.relatedTarget);
-        var postId = button.data("id");
-        var btnDeletePost = document.getElementById("btn-delete-post");
-        var formDelete = document.forms["delete-post-form"];
-        btnDeletePost.onclick = function() {
-            formDelete.action = "/admin/post/delete/" + postId + "?_method=DELETE";
-            formDelete.submit();
-        };
-    });
 </script>
 
 </html>

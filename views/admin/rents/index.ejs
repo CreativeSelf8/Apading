@@ -37,7 +37,7 @@
                 </select>
                                 </form>
                             </div>
-                            <a href="/admin/post/add">
+                            <a href="/admin/rent/add">
                                 <button class="btn btn-primary button-add">Thêm mới</button>
                             </a>
                         </div>
@@ -88,7 +88,7 @@
                                                 <%= post.created_at %>
                                             </td>
                                             <td>
-                                                <a href="/admin/post/update/<%= post.id  %>">
+                                                <a href="/admin/rent/update/<%= post.id  %>">
                                                     <button class="btn btn-success">Sửa</button>
                                                 </a>
 
@@ -144,7 +144,7 @@
         var btnDeletePost = document.getElementById("btn-delete-post");
         var formDelete = document.forms["delete-post-form"];
         btnDeletePost.onclick = function() {
-            formDelete.action = "/admin/post/delete/" + postId + "?_method=DELETE";
+            formDelete.action = "/admin/rent/delete/" + postId + "?_method=DELETE";
             formDelete.submit();
         };
     });

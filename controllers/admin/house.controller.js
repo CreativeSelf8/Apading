@@ -5,16 +5,16 @@ exports.getList = async function(req, res, next) {
         if (err) {
             throw err
         }
-        res.render('admin/posts/index.ejs', {
-            title: 'Post',
+        res.render('admin/houses/index.ejs', {
+            title: 'Houses',
             posts: result
         })
     })
 }
 
 exports.getFormAdd = function(req, res, next) {
-    res.render('admin/posts/add-post.ejs', {
-        title: 'Tao post'
+    res.render('admin/houses/add-house.ejs', {
+        title: 'Create house'
     })
 }
 exports.getFormUpdate = function(req, res, next) {
@@ -23,15 +23,15 @@ exports.getFormUpdate = function(req, res, next) {
         if (err) {
             throw (err)
         }
-        res.render('admin/posts/update-post.ejs', {
-            title: 'Update post',
+        res.render('admin/houses/update-house.ejs', {
+            title: 'Update house',
             post: result[0]
         })
     })
 
 }
 
-exports.addPost = async function(req, res, next) {
+exports.addHouse = async function(req, res, next) {
     let date = moment().format()
     let data = [
         req.body.name,
@@ -41,32 +41,28 @@ exports.addPost = async function(req, res, next) {
         req.body.name_ja,
         req.body.slug,
         req.body.img,
+        req.body.description,
         req.body.content,
         req.body.content_en,
         req.body.content_ch,
         req.body.content_ko,
         req.body.content_ja,
-        req.body.description,
-        req.body.description_en,
-        req.body.description_ko,
-        req.body.description_ch,
-        req.body.description_ja,
         req.body.type,
         date,
         date
     ]
 
-    let query = "INSERT INTO `post` (name,name_en,name_ko,name_ch,name_ja,slug,img,content,content_en,content_ch,content_ko,content_ja,description,description_en,description_ko,description_ch,description_ja,type,created_at, updated_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    let query = "INSERT INTO `post` (name,name_en,name_ko,name_ch,name_ja,slug,img,description,content,content_en,content_ch,content_ko,content_ja,type,created_at, updated_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
     db.query(query, data, function(err, result) {
         if (err) {
             throw (err)
         }
-        res.redirect('/admin/post')
+        res.redirect('/admin/house')
     })
 }
 
-exports.deletePost = function(req, res, next) {
+exports.deleteHouse = function(req, res, next) {
     try {
         let postId = req.params.id
         let query = 'DELETE FROM `post` WHERE id = ' + postId
@@ -74,13 +70,13 @@ exports.deletePost = function(req, res, next) {
             if (err) {
                 throw (err)
             }
-            res.redirect('/admin/post')
+            res.redirect('/admin/house')
         })
     } catch (error) {
-        res.redirect('/admin/post')
+        res.redirect('/admin/house')
     }
 }
-exports.updatePost = function(req, res, next) {
+exports.updateHouse = function(req, res, next) {
     try {
         let date = moment().format()
         let data = [req.body.name,
@@ -90,28 +86,22 @@ exports.updatePost = function(req, res, next) {
             req.body.name_ja,
             req.body.slug,
             req.body.img,
+            req.body.description,
             req.body.content,
             req.body.content_en,
             req.body.content_ch,
             req.body.content_ko,
             req.body.content_ja,
-            req.body.description,
-            req.body.description_en,
-            req.body.description_ko,
-            req.body.description_ch,
-            req.body.description_ja,
-            req.body.type,
-            date
+            req.body.type, date
         ]
-        console.log(req.body.type);
-        let query = "UPDATE post SET name=?, name_en=?, name_ko=?,name_ch=?,name_ja=?,slug=?,img=?,content=?,content_en=?,content_ch=?,content_ko=?,content_ja=?,description=?,description_en=?,description_ko=?,description_ch=?,description_ja=?,type=?,updated_at=? WHERE id= " + req.params.id + "";
+        let query = "UPDATE post SET name=?, name_en=?, name_ko=?,name_ch=?,name_ja=?,slug=?,img=?,description=?,content=?,content_en=?,content_ch=?,content_ko=?,content_ja=?,type=?,updated_at=? WHERE id= " + req.params.id + "";
         db.query(query, data, (err, results) => {
             if (err) {
                 throw (err)
             }
-            res.redirect('/admin/post')
+            res.redirect('/admin/house')
         })
     } catch (error) {
-        res.redirect('/admin/post')
+        res.redirect('/admin/house')
     }
 }
