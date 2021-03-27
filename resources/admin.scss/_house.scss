@@ -1,0 +1,35 @@
+.house-add-wrapper {
+    .column-left {
+        width: 65%;
+        padding-right: 25px;
+    }
+    .column-right {
+        width: 35%;
+    }
+    .input-default {
+        border-radius: 4px;
+        padding: 0 8px;
+        border: 1px solid $light-grey;
+        height: 35px;
+    }
+    .textarea-default {
+        border-radius: 4px;
+        height: 120px;
+        border: 1px solid $light-grey;
+        padding: 8px;
+    }
+    .input-md {
+        width: 300px;
+    }
+    .input-sm {
+        width: 190px;
+    }
+    .input-xs {
+        width: 140px;
+    }
+    .input-label {
+        font-weight: bold;
+        font-size: 16px;
+        margin: 16px 0 4px 0;
+    }
+}

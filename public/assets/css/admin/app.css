@@ -1,13 +1,18 @@
 .page-wrapper {
   min-height: 100vh;
-  background-color: white; }
+  background-color: white;
+  display: flex;
+  justify-content: center; }
 
 .page-container {
-  padding-left: 295px;
-  padding-right: 25px;
+  margin-left: 295px;
+  margin-right: 25px;
+  width: 100%;
+  max-width: 1070px;
   transition: 0.5s all ease-in-out; }
   .page-container.page-expanded {
-    padding-left: 25px;
+    justify-self: center;
+    margin-left: 25px;
     transition: 0.5s all ease-in-out; }
 
 .content-wrapper {
@@ -15,7 +20,7 @@
   background-color: white;
   width: 100%;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-  padding: 10px 15px;
+  padding: 15px 25px;
   border-radius: 8px; }
 
 .navbar {
@@ -120,6 +125,39 @@
   background-color: #183055;
   border: none;
   cursor: pointer; }
+
+.house-add-wrapper .column-left {
+  width: 65%;
+  padding-right: 25px; }
+
+.house-add-wrapper .column-right {
+  width: 35%; }
+
+.house-add-wrapper .input-default {
+  border-radius: 4px;
+  padding: 0 8px;
+  border: 1px solid #5f5e5e;
+  height: 35px; }
+
+.house-add-wrapper .textarea-default {
+  border-radius: 4px;
+  height: 120px;
+  border: 1px solid #5f5e5e;
+  padding: 8px; }
+
+.house-add-wrapper .input-md {
+  width: 300px; }
+
+.house-add-wrapper .input-sm {
+  width: 190px; }
+
+.house-add-wrapper .input-xs {
+  width: 140px; }
+
+.house-add-wrapper .input-label {
+  font-weight: bold;
+  font-size: 16px;
+  margin: 16px 0 4px 0; }
 
 input,
 textarea:focus {

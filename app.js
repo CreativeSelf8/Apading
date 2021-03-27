@@ -12,6 +12,7 @@ const app = express();
 const postRoutes = require('./routes/admin/post.routes');
 const homeRoutes = require('./routes/admin/index.routes');
 const houseRoutes = require('./routes/admin/house.routes');
+const rentRoutes = require('./routes/admin/rent.routes');
 
 const { DATABASE, DB_HOST, DB_PORT, DB_USER, DB_PASS, PORT } = process.env;
 
@@ -51,6 +52,7 @@ app.use(fileUpload()); // configure fileupload
 app.use('/admin', homeRoutes);
 app.use('/admin/post', postRoutes);
 app.use('/admin/house', houseRoutes);
+app.use('/admin/rent', rentRoutes);
 app.get('*', function(req, res, next) {
     res.status(404);
 
