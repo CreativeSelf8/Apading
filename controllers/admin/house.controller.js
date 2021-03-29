@@ -17,20 +17,30 @@ exports.getFormAdd = function(req, res, next) {
         title: 'Create house'
     })
 }
-exports.getFormUpdate = function(req, res, next) {
-    let query = "SELECT * FROM `apartments_long` WHERE id = " + req.params.id + ""
-    db.query(query, (err, result) => {
-        if (err) {
-            throw (err)
-        }
-        let house = result[0]
-        console.log(house);
-        res.render('admin/houses/update-house.ejs', {
-            title: 'Update house',
-            house: house
+exports.getFormUpdate = async function(req, res, next) {
+    let queryHouse = "SELECT * FROM `apartments_long` WHERE id = " + req.params.id
+    let house = await new Promise((resolve, reject) => {
+        db.query(queryHouse, (err, result) => {
+            if (err) {
+                reject(err)
+            }
+            resolve(result)
         })
     })
-
+    let queryProvince = "SELECT * FROM `province`"
+    let provinces = await new Promise((resolve, reject) => {
+        db.query(queryProvince, (err, result) => {
+            if (err) {
+                reject(err)
+            }
+            resolve(result)
+        })
+    })
+    res.render('admin/houses/update-house.ejs', {
+        title: 'Update house',
+        house: house,
+        provinces: provinces
+    })
 }
 
 exports.addHouse = async function(req, res, next) {

@@ -13,13 +13,14 @@
     transition: 0.5s all ease-in-out;
     &.page-expanded {
         justify-self: center;
-        margin-left: 25px;
+        margin-left: 35px;
         transition: 0.5s all ease-in-out;
     }
 }
 
 .content-wrapper {
     margin-top: 105px;
+    margin-bottom: 25px;
     background-color: $white;
     width: 100%;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;

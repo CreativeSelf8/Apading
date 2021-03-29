@@ -13,4 +13,5 @@ router.delete('/delete/:id', houseController.deleteHouse);
 
 router.get('/update/:id', houseController.getFormUpdate)
 router.put('/update/:id', houseController.updateHouse);
+
 module.exports = router;

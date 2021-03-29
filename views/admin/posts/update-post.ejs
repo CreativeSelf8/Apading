@@ -97,7 +97,10 @@
                                         for ( var i = 0; i < options.length; i++ )
                                         {
                                             var selected = ( post.type == options[i].value ) ? "selected" : "";
-                                            %><option value="<%=options[i].value %>" <%=selected %>><%= options[i].label %></option><%
+                                            %>
+                                            <option value="<%=options[i].value %>" <%=selected %>><%= options[i].label %>
+                                            </option>
+                                            <%
                                         }
                                     %>
                                     </select>
