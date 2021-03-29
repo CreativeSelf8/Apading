@@ -1,17 +1,25 @@
 const fs = require('fs');
+const async = require('async');
 
 exports.getHomePage = (req, res) => {
-    let query = "SELECT * FROM `players` ORDER BY id ASC"; // query database to get all the players
-
+    let apartmentQuery = "SELECT * FROM `apartments_long`  ORDER BY `updated_at` DESC LIMIT 10";
+    let rentQuery = "SELECT * FROM `rent` ORDER BY `updated_at` DESC LIMIT 10";
+    let postQuery = "SELECT * FROM `post` ORDER BY `updated_at` DESC LIMIT 10";
     // execute query
-    db.query(query, (err, result) => {
+    async.parallel([
+        function(callback) { db.query(apartmentQuery, callback) },
+        function(callback) { db.query(rentQuery, callback) },
+        function(callback) { db.query(postQuery, callback) }
+      ], function(err, results) {
+
         if (err) {
             res.redirect('/');
         }
 
         res.render('index.ejs', {
-            title: "Welcome to Socka | View Players",
-            players: result
+            apartments: results[0][0],
+            rents: results[1][0],
+            posts: results[2][0]
         });
-    });
+      });
 };
