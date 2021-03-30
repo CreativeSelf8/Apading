@@ -1,0 +1,264 @@
+/* BANNER */
+
+.banner_head {
+	background-image: url(../img/banner_4.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 132px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  }
+  
+  .banner_head .find_head {
+	display: flex;
+	justify-content: space-between;
+	text-align: center;
+	width: 522px;
+	height: 40px;
+	margin-left: 68px;
+	border-radius: 20px;
+  }
+  
+  .find_head i {
+	font-size: 20px;
+  }
+  
+  .find_head input {
+	width: 90%;
+	padding-left: 30px;
+	border: unset;
+	border-radius: 20px 0 0 20px;
+  }
+  
+  .find_head button {
+	width: 10%;
+	color: white;
+	border: unset;
+	background-color: #a7cad5;
+	border-radius: 0 20px 20px 0;
+  }
+  
+  input,
+  button:focus {
+	outline: unset;
+  }
+  
+  .options {
+	display: flex;
+	justify-content: space-around;
+	padding: 20px 0;
+  }
+  
+  .options .selection {
+	position: relative;
+	display: flex;
+	width: 130px;
+	height: 28px;
+	line-height: 28px;
+	background: #fff;
+  }
+  
+  .options .selection:after {
+	content: url(../img/icon_33.png);
+	position: absolute;
+	top: 0;
+	right: 0;
+	transform: translateX(100%);
+	cursor: pointer;
+	pointer-events: none;
+	color: black;
+	background-color: #c4c4c4;
+	width: 30px;
+	text-align: center;
+	border-radius: 0 20px 20px 0;
+  }
+  
+  .options select {
+	appearance: none;
+	outline: 0;
+	box-shadow: none;
+	border: 1px solid #757575;
+	background: white;
+	flex: 1;
+	color: black;
+	cursor: pointer;
+	text-align: center;
+	padding-left: 10px;
+	border-radius: 20px 0 0 20px;
+  }
+  
+  .options .search {
+	background-color: #549dc3;
+	color: #e3e3e3;
+	border: unset;
+	padding: 0 30px;
+	border-radius: 20px;
+  }
+  
+  /*END BANNER */
+  
+  /* MAIN */
+  
+  .result__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-left: 10px;
+	padding-right: 30px;
+  }
+  
+  .result__header .amount {
+	margin: 20px 0;
+	color: #575758;
+  }
+  
+  .result__header .place {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 2px solid #efefef;
+	padding: 5px 10px;
+	border-radius: 5px;
+  }
+  
+  .place i {
+	color: #6da9b9;
+	font-size: 20px;
+	margin-right: 10px;
+  }
+  
+  .place .place__name {
+	color: #767676;
+	font-size: 18px;
+	font-weight: 600;
+  }
+  
+  .list_house_result {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	position: relative;
+  }
+  
+  .circle-area {
+	position: absolute;
+	top: 44%;
+	left: 191%;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	background-color: yellow;
+	border: 5px solid rgb(235, 231, 14);
+	opacity: 0.5;
+	display: none;
+	z-index: 100;
+	}
+  
+  .list_house_result .one_house:hover .circle-area {
+	  display: block;
+	  animation-name: zoomIn;
+	  animation-duration: 1s;
+  }
+
+  @keyframes zoomIn{
+	  from {transform: scale(2);}
+	  to {transform: scale(1);}
+  }
+  
+  .list_house_result .one_house {
+	width: 48%;
+	margin-bottom: 40px;
+  }
+  
+  .list_house_result .one_house .name_house {
+	font-size: 12px;
+  }
+  .list_house_result .one_house .address_house {
+	font-size: 11px;
+  }
+  .list_house_result .one_house .price_house {
+	font-size: 12px;
+  }
+  .list_house_result .one_house .area {
+	margin: 0 0px 0 8px;
+  }
+  .list_house_result .one_house .area_house {
+	font-size: 9px;
+  }
+  .list_house_result .one_house .car_house {
+	font-size: 9px;
+  }
+  .list_house_result .one_house .car {
+	margin: 0;
+  }
+  
+  .one_house .house_head {
+	height: 220px !important;
+  }
+  
+  .map {
+	margin-bottom: 50px;
+	position: relative;
+  }
+  
+  .map__arrow {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	border: 1px solid #8f9191;
+	width: 40px;
+	height: 40px;
+	text-align: center;
+	border-radius: 50%;
+	background-color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transform: translate(-10%, -50%);
+  }
+  
+  .map__arrow i {
+	color: #848686;
+	font-size: 18px;
+  }
+  
+  .promotion_head {
+	background-image: url(../img/banner_3.png);
+	background-position: inherit;
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 100%;
+	height: 350px;
+  }
+  
+  .list-pages {
+	display: flex;
+	padding-left: 7%;
+  }
+  
+  .list-pages li {
+	margin: 0 2px;
+  }
+  
+  .list-pages li a {
+	display: block;
+	border: 1px solid #dedede;
+	padding: 5px 10px;
+	color: #777777;
+	border-radius: 5px;
+	font-weight: 500;
+	font-size: 12px;
+  }
+  
+  .list-house-head {
+	margin-bottom: 80px;
+  }
+  
+  .list-house-head .title {
+	color: #4f4f4f;
+  }
+  
+  /* END MAIN */
+  
