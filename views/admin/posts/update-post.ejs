@@ -2,16 +2,16 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="/assets/css/admin/app.css">
-    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/assets/css/admin/app.css" />
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet" />
 
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
@@ -28,104 +28,129 @@
         <%- include('../../partials/admin-sidebar') %>
             <div class="page-container">
                 <%- include('../../partials/admin-navbar') %>
-                    <div class="content-wrapper ">
+                    <div class="content-wrapper post-wrapper">
+                        <h2>Chỉnh sửa bài viết</h2>
+                        <hr />
                         <% if (post) { %>
                             <form method="POST" class="d-flex" action="/admin/post/update/<%= post.id %>?_method=PUT" name="editor">
-                                <div class="d-flex flex-column">
-                                    <label>Name</label>
-                                    <input type="text" name="name" required value="<%= post.name %>">
-                                    <label>Name (Eng)</label>
-                                    <input type="text" name="name_en" required value="<%= post.name_en %>">
-                                    <label>Name (Kor)</label>
-                                    <input type="text" name="name_ko" required value="<%= post.name_ko %>">
-                                    <label>Name (China)</label>
-                                    <input type="text" name="name_ch" required value="<%= post.name_ch %>">
-                                    <label>Name (Ja)</label>
-                                    <input type="text" name="name_ja" required value="<%= post.name_ja %>">
-                                    <label>Slug</label>
-                                    <input type="text" name="slug" required value="<%= post.slug %>">
-                                    <label>Content</label>
-                                    <div id="editor">
-                                        <p required>
-                                            <%- post.content %>
-                                        </p>
+                                <div class="d-flex flex-column column-left">
+                                    <div class="d-flex flex-column">
+                                        <label class="input-label">Name</label>
+                                        <input type="text" name="name" required value="<%= post.name %>" class="input-default input-md" />
                                     </div>
-                                    <input type="hidden" name="content">
-
-                                    <label>Content Eng</label>
-                                    <div id="editor-en">
-                                        <p>
-                                            <%- post.content_en %>
-                                        </p>
+                                    <div class="d-flex flex-column">
+                                        <label class="input-label">Name (Eng)</label>
+                                        <input type="text" name="name_en" required value="<%= post.name_en %>" class="input-default input-md" />
                                     </div>
-                                    <input type="hidden" name="content_en">
-
-                                    <label>Content Kor</label>
-                                    <div id="editor-ko">
-                                        <p>
-                                            <%- post.content_ko %>
-                                        </p>
+                                    <div class="d-flex flex-column">
+                                        <label class="input-label">Name (Kor)</label>
+                                        <input type="text" name="name_ko" required value="<%= post.name_ko %>" class="input-default input-md" />
                                     </div>
-                                    <input type="hidden" name="content_ko">
-
-                                    <label>Content China</label>
-                                    <div id="editor-ch">
-                                        <p>
-                                            <%- post.content_ch %>
-                                        </p>
+                                    <div class="d-flex flex-column">
+                                        <label class="input-label">Name (China)</label>
+                                        <input type="text" name="name_ch" required value="<%= post.name_ch %>" class="input-default input-md" />
                                     </div>
-                                    <input type="hidden" name="content_ch">
-
-                                    <label>Content Japan</label>
-                                    <div id="editor-ja">
-                                        <p>
-                                            <%- post.content_ja %>
-                                        </p>
+                                    <div class="d-flex flex-column">
+                                        <label class="input-label">Name (Ja)</label>
+                                        <input type="text" name="name_ja" required value="<%= post.name_ja %>" class="input-default input-md" />
                                     </div>
-                                    <input type="hidden" name="content_ja">
-
-                                    <button type="submit">Submit</button>
+                                    <div class="d-flex flex-column">
+                                        <label class="input-label">Slug</label>
+                                        <input type="text" name="slug" required value="<%= post.slug %>" class="input-default input-md" />
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <label class="input-label">Content</label>
+                                        <div id="editor">
+                                            <p required>
+                                                <%- post.content %>
+                                            </p>
+                                        </div>
+                                        <input type="hidden" name="content" />
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <label class="input-label">Content Eng</label>
+                                        <div id="editor-en">
+                                            <p>
+                                                <%- post.content_en %>
+                                            </p>
+                                        </div>
+                                        <input type="hidden" name="content_en" />
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <label class="input-label">Content Kor</label>
+                                        <div id="editor-ko">
+                                            <p>
+                                                <%- post.content_ko %>
+                                            </p>
+                                        </div>
+                                        <input type="hidden" name="content_ko" />
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <label class="input-label">Content China</label>
+                                        <div id="editor-ch">
+                                            <p>
+                                                <%- post.content_ch %>
+                                            </p>
+                                        </div>
+                                        <input type="hidden" name="content_ch" />
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <label class="input-label">Content Japan</label>
+                                        <div id="editor-ja">
+                                            <p>
+                                                <%- post.content_ja %>
+                                            </p>
+                                        </div>
+                                        <input type="hidden" name="content_ja" />
+                                    </div>
+                                    <button type="submit" class="btn btn-update-post">Cập nhật</button>
                                 </div>
-                                <div class="d-flex flex-column">
-                                    <label>Img</label>
-                                    <input type="text" name="img" required value="<%= post.img %>">
-                                    <label>Loại</label>
-                                    <select name="type">
-                                        <option value="" disabled>Chọn loại</option>
-                                    <%
-                                        var options = [ {value: 0, label: 'Bình thường'}, {value: 1, label: 'Nổi bật'} ];
-                                        for ( var i = 0; i < options.length; i++ )
-                                        {
-                                            var selected = ( post.type == options[i].value ) ? "selected" : "";
-                                            %>
-                                            <option value="<%=options[i].value %>" <%=selected %>><%= options[i].label %>
-                                            </option>
-                                            <%
-                                        }
-                                    %>
-                                    </select>
-                                    <label>Mô tả ngắn</label>
-                                    <textarea name="description"><%=post.description %></textarea>
-                                    <label>Mô tả ngắn (English)</label>
-                                    <textarea name="description_en"><%=post.description_en %></textarea>
-                                    <label>Mô tả ngắn (China)</label>
-                                    <textarea name="description_ch"><%=post.description_ch %></textarea>
-                                    <label>Mô tả ngắn (Korean)</label>
-                                    <textarea name="description_ko"><%=post.description_ko %></textarea>
-                                    <label>Mô tả ngắn (Japan)</label>
-                                    <textarea name="description_ja"><%=post.description_ja %></textarea>
+                                <div class="d-flex flex-column column-right">
+                                    <div class="d-flex flex-column">
+                                        <label class="input-label">Img</label>
+                                        <input type="text" name="img" required value="<%= post.img %>" class="input-default" />
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <label class="input-label">Loại</label>
+                                        <select name="type" class="input-default input-sm">
+                                            <option value="" disabled>Chọn loại</option>
+                                            <% var options=[ {value: 0, label: 'Bình thường' }, {value: 1,
+                                                label: 'Nổi bật' } ]; for ( var i=0; i < options.length; i++ ) { var
+                                                selected=( post.type==options[i].value ) ? "selected" : "" ; %>
+                                                <option value="<%=options[i].value %>" <%="selected" %>
+                                                    ><%= options[i].label %>
+                                                </option>
+                                                <% } %>
+                                        </select>
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <label class="input-label">Mô tả ngắn</label>
+                                        <textarea name="description" class="textarea-default"><%= post.description %></textarea>
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <label class="input-label">Mô tả ngắn (English)</label>
+                                        <textarea name="description_en" class="textarea-default"><%= post.description_en %></textarea>
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <label class="input-label">Mô tả ngắn (China)</label>
+                                        <textarea name="description_ch" class="textarea-default"><%= post.description_ch %></textarea>
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <label class="input-label">Mô tả ngắn (Korean)</label>
+                                        <textarea name="description_ko" class="textarea-default"><%= post.description_ko %></textarea>
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <label class="input-label">Mô tả ngắn (Japan)</label>
+                                        <textarea name="description_ja" class="textarea-default"><%= post.description_ja %></textarea>
+                                    </div>
                                 </div>
-
-
                             </form>
-                            <% } else { %>
-                                No data
+                            <% } else { %> No data
                                 <% } %>
                     </div>
             </div>
     </div>
 </body>
-<script>
-</script>
+<script></script>
 
 </html>

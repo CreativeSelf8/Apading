@@ -7,6 +7,7 @@ exports.getList = async function(req, res, next) {
         }
         res.render('admin/posts/index.ejs', {
             title: 'Post',
+            moment: moment,
             posts: result
         })
     })

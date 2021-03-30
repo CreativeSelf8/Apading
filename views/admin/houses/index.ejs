@@ -23,11 +23,15 @@
             <div class="page-container">
                 <%- include('../../partials/admin-navbar') %>
                     <div class="content-wrapper">
+                        <h2>Danh sách căn hộ</h2>
+                        <hr>
                         <div class="d-flex justify-content-between align-items-center content-header">
-                            <div class="d-flex align-items-center select-number">
-                                <span>Show</span>
+
+                            <div class="d-flex align-items-center select-number mb-3">
+
                                 <form action="post">
-                                    <select name="" id="">
+                                    <label class="input-label">Show</label>
+                                    <select name="" id="" class="input-default input-xxs ml-2">
                   <option value="5">5</option>
                   <option value="10">10</option>
                   <option value="15">15</option>
@@ -40,33 +44,35 @@
                             </a>
                         </div>
                         <div class="d-flex align-items-center">
-                            <span>Search</span>
-                            <form action="">
-                                <input type="text" placeholder="" />
+                            <form action="" class="mb-4">
+                                <div class="d-flex align-items-center">
+                                    <label class="input-label mt-0">Search</label>
+                                    <input type="text" placeholder="" class="input-default input-md search-input" />
+                                </div>
+
                             </form>
                         </div>
                         <% if ( houses.length> 0) { %>
-
-                            <table class="table">
+                            <table class="table table-responsive">
                                 <thead class="thead-light">
                                     <tr>
-                                        <th scope="col">STT</th>
-                                        <th scope="col">Hình ảnh</th>
-                                        <th scope="col">Tên</th>
-                                        <th scope="col">Tên(English)</th>
-                                        <th scope="col">Loại</th>
-                                        <th scope="col">Ngày tạo</th>
-                                        <th scope="col">Action</th>
+                                        <th scope="col" style="width: 3%">STT</th>
+                                        <th scope="col" style="width: 15%">Hình ảnh</th>
+                                        <th scope="col" style="width: 20%">Tên</th>
+                                        <th scope="col" style="width: 25%">Tên (English)</th>
+                                        <th scope="col" style="width: 12%">Loại</th>
+                                        <th scope="col" style="width: 10%">Ngày tạo</th>
+                                        <th scope="col" style="width: 15%">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <% houses.forEach((house, index)=> { %>
                                         <tr>
-                                            <th scope="row">
+                                            <th scope="row" class="table-xs-column">
                                                 <%= house.id %>
                                             </th>
                                             <td>
-                                                <img src="<%= house.img  %> " alt="img-house" class="img-post" />
+                                                <img src="<%= house.img  %> " alt="img-house" class="img-table" />
                                             </td>
                                             <td>
                                                 <%= house.name %>
@@ -74,23 +80,22 @@
                                             <td>
                                                 <%= house.name_en %>
                                             </td>
-                                            <td>
+                                            <td style="font-size: 12px;font-weight: bold;">
                                                 <% if (house.type==0) { %>
-                                                    <span>Nổi bật</span>
+                                                    <span class="table-type-column">Nổi bật</span>
 
                                                     <% } else { %>
-                                                        <span>Bình thường</span>
+                                                        <span class="table-type-column">Bình thường</span>
                                                         <% } %>
                                             </td>
                                             <td>
-                                                <%= house.created_at %>
+                                                <%= moment(house.created_at).format("DD/MM/YYYY") %>
                                             </td>
                                             <td>
                                                 <a href="/admin/house/update/<%= house.id  %>">
-                                                    <button class="btn btn-success">Sửa</button>
+                                                    <button class="btn btn-success btn-sm">Sửa</button>
                                                 </a>
-
-                                                <button class="btn btn-danger" type="button" data-toggle="modal" data-target="#delete-house-modal" data-id="<%= house.id %> ">
+                                                <button class="btn btn-danger btn-sm" type="button" data-toggle="modal" data-target="#delete-house-modal" data-id="<%= house.id %> ">
                     Xoá
                   </button>
                                             </td>
@@ -128,7 +133,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     <!-- Form Delete Hidden -->
                                     <form name="delete-house-form" method="POST"></form>
                     </div>
@@ -136,7 +140,6 @@
     </div>
 </body>
 <script src="/assets/js/admin/house.js"></script>
-<script>
-</script>
+<script></script>
 
 </html>

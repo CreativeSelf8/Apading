@@ -71,18 +71,15 @@
 
 .sidebar-item {
     cursor: pointer;
+    color: $white;
     padding: 10px 20px;
     i {
         margin-right: 8px;
     }
     &:hover,
-    &:focus,
-    &:hover .siderbar-link {
-        color: $blue;
-    }
-    .siderbar-link {
-        color: $white;
+    &:focus {
         text-decoration: none;
+        color: $blue;
     }
 }
 

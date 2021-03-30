@@ -1,20 +1,33 @@
-.img-post {
-    width: 100px;
-}
-
-.select-number {
-    span {
-        font-weight: bold;
-        margin-right: 5px;
+.post-wrapper {
+    .select-number {
+        span {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+    }
+    .content-header {
+        margin-bottom: 10px;
+    }
+    .add-button {
+        background-color: $dark-blue;
+        border: none;
+        cursor: pointer;
+        width: 125px;
+        margin-top: 20px;
+        margin-left: auto;
+    }
+    .btn-update-post {
+        background-color: $dark-blue;
+        border: none;
+        cursor: pointer;
+        width: 125px;
+        margin-top: 20px;
+        margin-right: auto;
+        color: white;
+        text-transform: uppercase;
     }
 }
 
-.content-header {
-    margin-bottom: 10px;
-}
-
-.button-add {
-    background-color: $dark-blue;
-    border: none;
-    cursor: pointer;
+.img-table {
+    width: 100px;
 }

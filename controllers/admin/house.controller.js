@@ -7,7 +7,8 @@ exports.getList = async function(req, res, next) {
         }
         res.render('admin/houses/index.ejs', {
             title: 'Houses',
-            houses: result
+            houses: result,
+            moment: moment
         })
     })
 }
