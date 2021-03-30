@@ -167,6 +167,12 @@
   margin-top: 20px;
   margin-left: auto; }
 
+.house-add-wrapper #submit-add {
+  bottom: 25px;
+  width: 125px;
+  margin-top: 20px;
+  margin-left: auto; }
+
 input,
 textarea:focus {
   outline: none; }

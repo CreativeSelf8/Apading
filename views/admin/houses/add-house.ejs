@@ -11,12 +11,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
     <link rel="stylesheet" href="/assets/css/admin/app.css">
-    <!-- <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/assets/js/admin/index.js"></script>
     <script src="/assets/js/admin/house.js"></script>
-    <!-- <script src="/assets/js/admin/editor.js"></script> -->
-    <!-- <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script> -->
-
     <title>
         <%= title %>
     </title>
@@ -76,19 +73,29 @@
                                 <div class="d-flex justify-content-between">
                                     <div class="d-flex flex-column">
                                         <label class="input-label">Tỉnh thành</label>
-                                        <select name="province" class="input-default input-sm">
+                                        <select name="province" class="input-default input-sm" id="add-province">
                                             <option value="" disabled selected>Tỉnh thành</option>
+                                            <% for (let i = 0; i < provinces.length; i++) 
+                                                {
+                                                    const province = provinces[i];
+                                                    const provinceID = province.id
+                                                    
+                                            %>
+                                                <option value="<%=province.id%>" ><%=province._name%></option>
+                                            <%
+                                                } 
+                                            %>
                                         </select>
                                     </div>
                                     <div class="d-flex flex-column">
                                         <label class="input-label">Quận/huyện</label>
-                                        <select name="district" class="input-default input-sm">
+                                        <select name="district" class="input-default input-sm" id="add-district">
                                             <option value="" disabled selected>Quận/huyện</option>
                                         </select>
                                     </div>
                                     <div class="d-flex flex-column">
                                         <label class="input-label">Phường/xã</label>
-                                        <select name="ward" class="input-default input-sm">
+                                        <select name="ward" class="input-default input-sm" id="add-ward">
                                             <option value="" disabled selected>Phường/xã</option>
                                         </select>
                                     </div>
@@ -143,7 +150,7 @@
                                     <label class="input-label">Miêu tả ngắn (English)</label>
                                     <textarea name="description_en" placeholder="Miêu tả ngắn (English)" class="textarea-default"></textarea>
                                 </div>
-                                <button type="submit" class="btn btn-primary" id="submit-add">Submit</button>
+                                <button type="submit" class="btn btn-primary" id="submit-add">Thêm mới</button>
                             </div>
 
                         </form>

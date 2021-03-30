@@ -12,8 +12,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous" />
     <link rel="stylesheet" href="/assets/css/admin/app.css" />
     <script src="/assets/js/admin/index.js"></script>
-    <script src="/assets/js/admin/post.js"></script>
-
+    <script src="/assets/js/admin/rent.js"></script>
     <title>
         <%= title %>
     </title>
@@ -47,7 +46,7 @@
                                 <input type="text" placeholder="" />
                             </form>
                         </div>
-                        <% if ( posts.length> 0) { %>
+                        <% if ( rents.length> 0) { %>
 
                             <table class="table">
                                 <thead class="thead-light">
@@ -62,22 +61,22 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <% posts.forEach((post, index)=> { %>
+                                    <% rents.forEach((rent, index)=> { %>
                                         <tr>
                                             <th scope="row">
-                                                <%= post.id %>
+                                                <%= rent.id %>
                                             </th>
                                             <td>
-                                                <img src="<%= post.img %>" alt="img-post" class="img-post" />
+                                                <img src="<%= rent.img %>" alt="img-post" class="img-post" />
                                             </td>
                                             <td>
-                                                <%= post.name %>
+                                                <%= rent.name %>
                                             </td>
                                             <td>
-                                                <%= post.name_en %>
+                                                <%= rent.name_en %>
                                             </td>
                                             <td>
-                                                <% if (post.type==0) { %>
+                                                <% if (rent.type==0) { %>
                                                     <span>Nổi bật</span>
 
                                                     <% } else { %>
@@ -85,14 +84,14 @@
                                                         <% } %>
                                             </td>
                                             <td>
-                                                <%= post.created_at %>
+                                                <%= rent.created_at %>
                                             </td>
                                             <td>
-                                                <a href="/admin/rent/update/<%= post.id  %>">
+                                                <a href="/admin/rent/update/<%= rent.id  %>">
                                                     <button class="btn btn-success">Sửa</button>
                                                 </a>
 
-                                                <button class="btn btn-danger" type="button" data-toggle="modal" data-target="#delete-post-modal" data-id="<%= post.id %> ">
+                                                <button class="btn btn-danger" type="button" data-toggle="modal" data-target="#delete-post-modal" data-id="<%= rent.id %> ">
                     Xoá
                   </button>
                                             </td>
@@ -104,7 +103,7 @@
                                 <p>No datas</p>
                                 <% }%>
                                     <!-- Delete Modal -->
-                                    <div class="modal fade" id="delete-post-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="delete-rent-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -116,14 +115,14 @@
                   </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <p>Xoá bài viết sẽ không thể khôi phục.</p>
+                                                    <p>Xoá căn hộ sẽ không thể khôi phục.</p>
                                                     <p>Bạn chắc chắn muốn xoá?</p>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">
                     Huỷ
                   </button>
-                                                    <button type="button" class="btn btn-danger" id="btn-delete-post">
+                                                    <button type="button" class="btn btn-danger" id="btn-delete-rent">
                     Xác nhận
                   </button>
                                                 </div>
@@ -132,22 +131,12 @@
                                     </div>
 
                                     <!-- Form Delete Hidden -->
-                                    <form name="delete-post-form" method="POST"></form>
+                                    <form name="delete-rent-form" method="POST"></form>
                     </div>
             </div>
     </div>
 </body>
 <script>
-    $("#delete-post-modal").on("show.bs.modal", function(event) {
-        var button = $(event.relatedTarget);
-        var postId = button.data("id");
-        var btnDeletePost = document.getElementById("btn-delete-post");
-        var formDelete = document.forms["delete-post-form"];
-        btnDeletePost.onclick = function() {
-            formDelete.action = "/admin/rent/delete/" + postId + "?_method=DELETE";
-            formDelete.submit();
-        };
-    });
 </script>
 
 </html>

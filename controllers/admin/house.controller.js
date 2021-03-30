@@ -12,21 +12,7 @@ exports.getList = async function(req, res, next) {
     })
 }
 
-exports.getFormAdd = function(req, res, next) {
-    res.render('admin/houses/add-house.ejs', {
-        title: 'Create house'
-    })
-}
-exports.getFormUpdate = async function(req, res, next) {
-    let queryHouse = "SELECT * FROM `apartments_long` WHERE id = " + req.params.id
-    let house = await new Promise((resolve, reject) => {
-        db.query(queryHouse, (err, result) => {
-            if (err) {
-                reject(err)
-            }
-            resolve(result)
-        })
-    })
+exports.getFormAdd = async function(req, res, next) {
     let queryProvince = "SELECT * FROM `province`"
     let provinces = await new Promise((resolve, reject) => {
         db.query(queryProvince, (err, result) => {
@@ -36,10 +22,63 @@ exports.getFormUpdate = async function(req, res, next) {
             resolve(result)
         })
     })
+
+    res.render('admin/houses/add-house.ejs', {
+        title: 'Create house',
+        provinces: provinces
+    })
+}
+exports.getFormUpdate = async function(req, res, next) {
+    let queryHouse = "SELECT * FROM `apartments_long` WHERE id = " + req.params.id
+    let provinces = []
+    let districts = []
+    let wards = []
+    let house = await new Promise((resolve, reject) => {
+        db.query(queryHouse, (err, result) => {
+            if (err) {
+                reject(err)
+            }
+            resolve(result[0])
+        })
+    })
+    let queryProvince = "SELECT * FROM `province`"
+    provinces = await new Promise((resolve, reject) => {
+        db.query(queryProvince, (err, result) => {
+            if (err) {
+                reject(err)
+            }
+            resolve(result)
+        })
+    })
+
+    if (house.province_id) {
+        let queryDistrict = "SELECT * FROM `district` WHERE _province_id = " + house.province_id
+        districts = await new Promise((resolve, reject) => {
+            db.query(queryDistrict, (err, result) => {
+                if (err) {
+                    reject(err)
+                }
+                resolve(result)
+            })
+        })
+    }
+    if (house.district_id) {
+        let queryWard = "SELECT * FROM `ward` WHERE _district_id = " + house.district_id
+        wards = await new Promise((resolve, reject) => {
+            db.query(queryWard, (err, result) => {
+                if (err) {
+                    reject(err)
+                }
+                resolve(result)
+            })
+        })
+    }
     res.render('admin/houses/update-house.ejs', {
         title: 'Update house',
         house: house,
-        provinces: provinces
+        provinces: provinces,
+        districts: districts,
+        wards: wards
     })
 }
 
@@ -102,6 +141,9 @@ exports.updateHouse = function(req, res, next) {
             req.body.bathroom,
             req.body.price,
             req.body.price_old,
+            req.body.province_id,
+            req.body.district_id,
+            req.body.ward_id,
             req.body.address,
             req.body.img,
             req.body.description,
@@ -109,7 +151,7 @@ exports.updateHouse = function(req, res, next) {
             req.body.month,
             date,
         ]
-        let query = "UPDATE apartments_long SET name=?, name_en=?, slug=?,person=?,room=?,area=?,bathroom=?,price=?,price_old=?,address=?,img=?,description=?,description_en=?,month=?,updated_at=? WHERE id= " + req.params.id + "";
+        let query = "UPDATE apartments_long SET name=?, name_en=?, slug=?,person=?,room=?,area=?,bathroom=?,price=?,price_old=?,province_id=?,district_id=?,ward_id=?,address=?,img=?,description=?,description_en=?,month=?,updated_at=? WHERE id= " + req.params.id + "";
         db.query(query, data, (err, results) => {
             if (err) {
                 throw (err)

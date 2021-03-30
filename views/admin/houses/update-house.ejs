@@ -12,11 +12,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
     <link rel="stylesheet" href="/assets/css/admin/app.css">
-    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <!-- <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet"> -->
     <script src="/assets/js/admin/index.js"></script>
     <script src="/assets/js/admin/house.js"></script>
     <script src="/assets/js/admin/editor.js"></script>
-    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <!-- <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script> -->
 
     <title>
         <%= title %>
@@ -35,7 +35,7 @@
                             <form action="/admin/house/update/<%= house.id %>?_method=PUT" method="POST" class="d-flex house-add-wrapper" name="form-update">
                                 <div class="d-flex flex-column column-left">
                                     <label class="input-label">Tên căn hộ</label>
-                                    <input type="text" name="name" required class="input-default input-md" value="<%= house.name %>">
+                                    <input type="text" name="name" required value="<%= house.name %>">
                                     <label class="input-label">Tên căn hộ (English)</label>
                                     <input type="text" name="name_en" required class="input-default input-md" value="<%= house.name_en %>">
                                     <label class="input-label">Slug</label>
@@ -43,11 +43,11 @@
                                     <div class="d-flex justify-content-between">
                                         <div class="d-flex flex-column">
                                             <label class="input-label">Số người</label>
-                                            <input type="number" placeholder="1" name="person" class="input-default input-xs" value="<%=house.person%>">
+                                            <input type="number" placeholder="1" name="person" class="input-default input-xs" value="<%= house.person %>">
                                         </div>
                                         <div class="d-flex flex-column">
                                             <label class="input-label">Phòng</label>
-                                            <input type="text" placeholder="1" name="room" class="input-default input-xs" value="<%=house.room %>">
+                                            <input type="text" placeholder="1" name="room" class="input-default input-xs" value="<%= house.room %>">
                                         </div>
                                         <div class="d-flex flex-column">
                                             <label class="input-label">Diện tích m2</label>
@@ -78,13 +78,13 @@
                                     <div class="d-flex justify-content-between">
                                         <div class="d-flex flex-column">
                                             <label class="input-label">Tỉnh thành</label>
-                                            <select name="province" class="input-default input-sm" id="update-province">
-                                                <option value="" disabled>Tỉnh thành</option>
+                                            <select name="province_id" class="input-default input-sm" id="update-province">
+                                                <option value="" disabled selected>Tỉnh thành</option>
                                                 <% for (let i = 0; i < provinces.length; i++) 
                                                     {
                                                         const province = provinces[i];
                                                         const provinceID = province.id
-                                                        let selected = ( provinceID == house.provinceId ) ? "selected" : "";
+                                                        let selected = ( provinceID == house.province_id ) ? "selected" : "";
                                                 %>
                                                     <option value="<%=province.id%>" <%=selected%>><%=province._name%></option>
                                                 <%
@@ -94,15 +94,35 @@
                                         </div>
                                         <div class="d-flex flex-column">
                                             <label class="input-label">Quận/huyện</label>
-                                            <select name="district" class="input-default input-sm" id="update-district">
+                                            <select name="district_id" class="input-default input-sm" id="update-district">
                                             <option value="" disabled selected>Quận/huyện</option>
-                                        </select>
+                                            <% for (let i = 0; i < districts.length; i++) 
+                                                {
+                                                    const district = districts[i];
+                                                    const districtID = district.id
+                                                    let selected = ( districtID == house.district_id ) ? "selected" : "";
+                                            %>
+                                                    <option value="<%=district.id%>" <%=selected%>><%=district._name%></option>
+                                            <%
+                                                } 
+                                            %> 
+                                            </select>
                                         </div>
                                         <div class="d-flex flex-column">
                                             <label class="input-label">Phường/xã</label>
-                                            <select name="ward" class="input-default input-sm" id="update-ward">
+                                            <select name="ward_id" class="input-default input-sm" id="update-ward">
                                             <option value="" disabled selected>Phường/xã</option>
-                                        </select>
+                                            <% for (let i = 0; i < wards.length; i++) 
+                                                {
+                                                    const ward = wards[i];
+                                                    const wardID = ward.id
+                                                    let selected = ( wardID == house.ward_id ) ? "selected" : "";
+                                            %>
+                                                    <option value="<%=ward.id%>" <%=selected%>><%=ward._name%></option>
+                                            <%
+                                                } 
+                                            %> 
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="d-flex flex-column">

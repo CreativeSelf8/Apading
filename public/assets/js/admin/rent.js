@@ -1,11 +1,11 @@
 $(document).ready(function() {
-    $("#delete-house-modal").on("show.bs.modal", function(event) {
+    $("#delete-rent-modal").on("show.bs.modal", function(event) {
         var button = $(event.relatedTarget);
         var postId = button.data("id");
-        var btnDeletePost = document.getElementById("btn-delete-house");
-        var formDelete = document.forms["delete-house-form"];
+        var btnDeletePost = document.getElementById("btn-delete-rent");
+        var formDelete = document.forms["delete-rent-form"];
         btnDeletePost.onclick = function() {
-            formDelete.action = "/admin/house/delete/" + postId + "?_method=DELETE";
+            formDelete.action = "/admin/rent/delete/" + postId + "?_method=DELETE";
             formDelete.submit();
         };
     });
