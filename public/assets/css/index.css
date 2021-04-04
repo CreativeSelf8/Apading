@@ -144,10 +144,6 @@ a:hover{
     overflow: hidden;
 }
 
-.red {
-    background-color: #f54f62 !important;
-}
-
 .option_check input[type="radio"] {
     display:none;
   }
