@@ -144,20 +144,33 @@ a:hover{
     overflow: hidden;
 }
 
-.option_check .btn_check {
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    padding: 5px 20px;
-}
-
 .red {
     background-color: #f54f62 !important;
 }
 
-.btn_check:focus {
-    box-shadow: unset;
-}
+.option_check input[type="radio"] {
+    display:none;
+  }
+  
+.option_check label {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    padding: 5px 20px;
+    display: inline-block;
+    cursor: pointer;
+    margin: 0;
+  }
+  
+.option_check .blank-label {
+    display: none;
+  }
+  
+.option_check  input[type="radio"]:checked + label {
+    background-color: #f54f62;
+    color: #fff;
+  }
+  
 
 
 /* END BANNER */
@@ -928,7 +941,7 @@ a:hover{
         cursor: pointer;
         text-align: center;
         padding-left: 10px;
-
+        
     }
     .search_box {
         display: flex;
@@ -1119,4 +1132,4 @@ a:hover{
 /*END MOBILE */
 
 
-/*END MOBILE */ 
+/*END MOBILE */

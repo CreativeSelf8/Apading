@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+    // home
     $(".list_house").lightSlider({
         item: 4,
         autoWidth: true,
@@ -26,6 +27,7 @@ $(document).ready(function() {
         auto: true,
         loop: true,
         pauseOnHover: true,
+        pager: false,
     });
 
     $(".list_home_infor_1").lightSlider({
@@ -38,6 +40,7 @@ $(document).ready(function() {
         pauseOnHover: true,
     });
 
+    // furniture
     $(".slide-furniture").lightSlider({
         item: 1,
         autoWidth: false,
@@ -56,6 +59,17 @@ $(document).ready(function() {
         pager: false,
         speed: 1500,
 
+    });
+
+    // news
+    $(".slide-news__content").lightSlider({
+        item: 1,
+        autoWidth: false,
+        speed: 1500,
+        auto: true,
+        loop: true,
+        pauseOnHover: true,
+        pager: true,
     });
 
 
@@ -87,18 +101,6 @@ $(document).ready(function() {
             pager: false,
         });
     }
-
-
-    $('.btn_1').click(() => {
-        $('.btn_1').toggleClass('red');
-        $('.btn_2').removeClass('red');
-    });
-
-    $('.btn_2').click(() => {
-        $('.btn_2').toggleClass('red');
-        $('.btn_1').removeClass('red');
-    });
-
 
     $('.select').click(() => {
         $('.dropdown_content').toggleClass('display');

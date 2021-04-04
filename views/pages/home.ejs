@@ -9,10 +9,11 @@
     <div class="container d-none d-md-block">
         <div class="row">
             <div class="option_search col-md-9 col-12">
-                <div class="part_up">
-                    <div class="one_part">
-                        <!-- 3 trường lọc -->
-                        <% for( let index=0; index < 3; index++ ) { %>
+                <form action="" method="post">
+                    <div class="part_up">
+                        <div class="one_part">
+                            <!-- 3 filter field -->
+                            <% for( let index=0; index < 3; index++ ) { %>
                             <div class="one_option">
                                 <div class="label">
                                     <img src="/assets/img/ba chaasm.png " alt=" " />
@@ -20,17 +21,17 @@
                                 </div>
                                 <div class="selection">
                                     <select name="city " id="city ">
-                                        <% for( let index=0; index < 3; index++ ) { %>
-                                            <option value="1 ">Hà nội</option>
-                                            <% } %>
+                                        <option value="1 ">Hà nội</option>
+                                        <option value="1 ">Hà nội</option>
+                                        <option value="1 ">Hà nội</option>
                                     </select>
                                 </div>
                             </div>
                             <% } %>
-                    </div>
-                    <div class="one_part">
-                        <!-- 3 trường lọc -->
-                        <% for( let index=0; index < 3; index++ ) { %>
+                        </div>
+                        <div class="one_part">
+                            <!-- 3 filter field -->
+                            <% for( let index=0; index < 3; index++ ) { %>
                             <div class="one_option">
                                 <div class="label">
                                     <img src="/assets/img/ba chaasm.png " alt=" " />
@@ -38,19 +39,19 @@
                                 </div>
                                 <div class="selection">
                                     <select name="city " id="city ">
-                                        <% for( let index=0; index < 3; index++ ) { %>
-                                            <option value="1 ">Hà nội</option>
-                                            <% } %>
+                                        <option value="1 ">Hà nội</option>
+                                        <option value="1 ">Hà nội</option>
+                                        <option value="1 ">Hà nội</option>
                                     </select>
                                 </div>
                             </div>
                             <% } %>
+                        </div>
                     </div>
-                </div>
-                <div class="part_down">
-                    <!-- checkbox về nội thất và xuất hóa đơn -->
-                    <% for( let index=0; index < 2; index++ ) { %>
+                    <div class="part_down">
                         <div class="one_option">
+                            <!-- 2 check option -->
+                            <% for( let index=0; index < 2; index++ ) { %>
                             <div class="label width">
                                 <img src="/assets/img/ba chaasm.png " alt=" " />
                                 <div class=" ">Kiểu nhà muốn thuê</div>
@@ -63,16 +64,19 @@
                                 <input type="radio" name="interior" id=" " />
                                 <span>Nội thất cơ bản</span>
                             </div>
+                            <% } %>
                         </div>
-                        <% } %>
-                </div>
-                <button class="find" type="submit ">Tìm kiếm</button>
-                <div class="btn-group option_check" role="group " aria-label="Basic example ">
-                    <!-- Lựa chọn bán hay thuê -->
-                    <% for( let index=0; index < 2; index++ ) { %>
-                        <button type="button " class="btn btn_check btn_1">Bán</button>
-                        <% } %>
-                </div>
+                    </div>
+                    <div class="option_check">
+                        <input type="radio" id="ban" checked name="search_type" value="" />
+                        <label for="ban">Bán</label>
+
+                        <input type="radio" id="thue" name="search_type" value="" />
+                        <label for="thue">Thuê</label>
+                    </div>
+
+                    <button class="find" type="submit ">Tìm kiếm</button>
+                </form>
             </div>
         </div>
     </div>
@@ -80,9 +84,8 @@
         <div class="row m-auto">
             <div class="selection_box">
                 <select name=" " id=" ">
-                    <% for( let index=0; index < 3; index++ ) { %>
-                        <option value="1 ">Hà nội</option>
-                        <% } %>
+                    <option value="1 ">임대</option>
+                    <option value="1 ">Bán</option>
                 </select>
             </div>
             <div class="search">
@@ -108,40 +111,40 @@
         <div class="row list_house">
             <!-- List căn hộ -->
             <% for( let index=0; index < 5; index++ ) { %>
-                <div class="one_house">
-                    <div class="image">
-                        <img src="/assets/img/house.png " alt=" " />
-                        <img src="/assets/img/icon_7.png " alt=" " class="heart" />
-                        <a href=" " class="video">
-                            <img src="/assets/img/icon_13.png " alt=" " />
-                        </a>
-                    </div>
-                    <a href="" class=" ">
-                        <div class="name">
-                            <i class="fas fa-home"></i>
-                            <span class="name_house">VINHOME GREENBAY</span>
-                        </div>
-                        <div class="address">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span class="address_house">P.TRUNG HÒA, Q.CẦU GIẤY</span>
-                        </div>
-                        <div class="infor">
-                            <div class="price">
-                                <i class="fas fa-dollar-sign"></i>
-                                <span class="price_house">12.000.000vnd</span>
-                            </div>
-                            <div class="area">
-                                <i class="fas fa-chart-line"></i>
-                                <span class="area_house">45m2</span>
-                            </div>
-                            <div class="car">
-                                <i class="fas fa-car-alt"></i>
-                                <span class="car_house">2PN</span>
-                            </div>
-                        </div>
+            <div class="one_house">
+                <div class="image">
+                    <img src="/assets/img/house.png " alt=" " />
+                    <img src="/assets/img/icon_7.png " alt=" " class="heart" />
+                    <a href=" " class="video">
+                        <img src="/assets/img/icon_13.png " alt=" " />
                     </a>
                 </div>
-                <% } %>
+                <a href="" class=" ">
+                    <div class="name">
+                        <i class="fas fa-home"></i>
+                        <span class="name_house">VINHOME GREENBAY</span>
+                    </div>
+                    <div class="address">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span class="address_house">P.TRUNG HÒA, Q.CẦU GIẤY</span>
+                    </div>
+                    <div class="infor">
+                        <div class="price">
+                            <i class="fas fa-dollar-sign"></i>
+                            <span class="price_house">12.000.000vnd</span>
+                        </div>
+                        <div class="area">
+                            <i class="fas fa-chart-line"></i>
+                            <span class="area_house">45m2</span>
+                        </div>
+                        <div class="car">
+                            <i class="fas fa-car-alt"></i>
+                            <span class="car_house">2PN</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <% } %>
         </div>
     </div>
     <div class="container part_2">
@@ -154,40 +157,40 @@
         <div class="row list_house">
             <!-- List căn hộ -->
             <% for( let index=0; index < 5; index++ ) { %>
-                <div class="one_house">
-                    <div class="image">
-                        <img src="/assets/img/house.png " alt=" " />
-                        <img src="/assets/img/icon_7.png " alt=" " class="heart" />
-                        <a href=" " class="video">
-                            <img src="/assets/img/icon_13.png " alt=" " />
-                        </a>
-                    </div>
-                    <a href=" " class=" ">
-                        <div class="name">
-                            <i class="fas fa-home"></i>
-                            <span class="name_house">VINHOME GREENBAY</span>
-                        </div>
-                        <div class="address">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span class="address_house">P.TRUNG HÒA, Q.CẦU GIẤY</span>
-                        </div>
-                        <div class="infor">
-                            <div class="price">
-                                <i class="fas fa-dollar-sign"></i>
-                                <span class="price_house">12.000.000vnd</span>
-                            </div>
-                            <div class="area">
-                                <i class="fas fa-chart-line"></i>
-                                <span class="area_house">45m2</span>
-                            </div>
-                            <div class="car">
-                                <i class="fas fa-car-alt"></i>
-                                <span class="car_house">2PN</span>
-                            </div>
-                        </div>
+            <div class="one_house">
+                <div class="image">
+                    <img src="/assets/img/house.png " alt=" " />
+                    <img src="/assets/img/icon_7.png " alt=" " class="heart" />
+                    <a href=" " class="video">
+                        <img src="/assets/img/icon_13.png " alt=" " />
                     </a>
                 </div>
-                <% } %>
+                <a href=" " class=" ">
+                    <div class="name">
+                        <i class="fas fa-home"></i>
+                        <span class="name_house">VINHOME GREENBAY</span>
+                    </div>
+                    <div class="address">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span class="address_house">P.TRUNG HÒA, Q.CẦU GIẤY</span>
+                    </div>
+                    <div class="infor">
+                        <div class="price">
+                            <i class="fas fa-dollar-sign"></i>
+                            <span class="price_house">12.000.000vnd</span>
+                        </div>
+                        <div class="area">
+                            <i class="fas fa-chart-line"></i>
+                            <span class="area_house">45m2</span>
+                        </div>
+                        <div class="car">
+                            <i class="fas fa-car-alt"></i>
+                            <span class="car_house">2PN</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <% } %>
         </div>
     </div>
     <div class="container promotion">
@@ -207,42 +210,42 @@
         <ul class="list_home_infor list_home_infor_1">
             <!-- Slide 3 căn hộ -->
             <% for( let index=0; index < array.length; index++ ) { %>
-                <li>
-                    <div class="row d-block d-md-flex p-0 one_home">
-                        <div class="col-12 col-md-6 p-0 pl-3 image">
-                            <img src="/assets/img/house_1.png " class="img-fluid" alt=" " />
-                        </div>
-                        <div class="col-12 col-md-6 p-0 pl-5 home_infor">
-                            <div class="name_home">Bán căn hộ trung cư vinhome greenbay</div>
-                            <div class="address_home">
-                                Địa chỉ: Cổ nhuế 1, Bắc Từ Liêm Hà Nội
-                            </div>
-                            <div class="area_home">Diện tích: 112m2 2WC 3PN</div>
-                            <div class="price_home">Giá: 12.000.000 vnđ</div>
-                            <div class="phone">
-                                <span class="lienhe">Liên hệ</span>
-                                <span>0976.554.xxx</span>
-                            </div>
-                            <a href=" " class="d-none d-md-block more">Xem thêm</a>
-                            <div class="option">
-                                <a href=" " class="calendar">
-                                    Đặt lịch
-                                    <i class="fas fa-calendar-alt pl-2" style="color: #6d6d6d; font-size: 14px"></i>
-                                </a>
-                                <a href=" " class="youtube">
-                                    Xem video
-                                    <i class="fab fa-youtube pl-2" style="color: #6d6d6d; font-size: 14px"></i>
-                                </a>
-                                <a href=" " class="camera">
-                                    Xem nhà 360
-                                    <i class="fas fa-video pl-2" style="color: #6d6d6d; font-size: 14px"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <a href=" " class="d-block d-md-none more_mobile">Xem chi tiết</a>
+            <li>
+                <div class="row d-block d-md-flex p-0 one_home">
+                    <div class="col-12 col-md-6 p-0 pl-3 image">
+                        <img src="/assets/img/house_1.png " class="img-fluid" alt=" " />
                     </div>
-                </li>
-                <% } %>
+                    <div class="col-12 col-md-6 p-0 pl-5 home_infor">
+                        <div class="name_home">Bán căn hộ trung cư vinhome greenbay</div>
+                        <div class="address_home">
+                            Địa chỉ: Cổ nhuế 1, Bắc Từ Liêm Hà Nội
+                        </div>
+                        <div class="area_home">Diện tích: 112m2 2WC 3PN</div>
+                        <div class="price_home">Giá: 12.000.000 vnđ</div>
+                        <div class="phone">
+                            <span class="lienhe">Liên hệ</span>
+                            <span>0976.554.xxx</span>
+                        </div>
+                        <a href=" " class="d-none d-md-block more">Xem thêm</a>
+                        <div class="option">
+                            <a href=" " class="calendar">
+                                Đặt lịch
+                                <i class="fas fa-calendar-alt pl-2" style="color: #6d6d6d; font-size: 14px"></i>
+                            </a>
+                            <a href=" " class="youtube">
+                                Xem video
+                                <i class="fab fa-youtube pl-2" style="color: #6d6d6d; font-size: 14px"></i>
+                            </a>
+                            <a href=" " class="camera">
+                                Xem nhà 360
+                                <i class="fas fa-video pl-2" style="color: #6d6d6d; font-size: 14px"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <a href=" " class="d-block d-md-none more_mobile">Xem chi tiết</a>
+                </div>
+            </li>
+            <% } %>
         </ul>
         <div class="box_shadow"></div>
     </div>
@@ -305,18 +308,18 @@
             <ul class="m-0 news_up">
                 <!-- 4 thể loại tin tức -->
                 <% for( let index=0; index < 4; index++ ) { %>
-                    <li>
-                        <a href=" ">Thời sự</a>
-                    </li>
-                    <% } %>
+                <li>
+                    <a href=" ">Thời sự</a>
+                </li>
+                <% } %>
             </ul>
             <ul class="m-0 new_down">
                 <!-- 3 thể loại tin tức -->
                 <% for( let index=0; index < 3; index++ ) { %>
-                    <li>
-                        <a href=" ">Thời sự</a>
-                    </li>
-                    <% } %>
+                <li>
+                    <a href=" ">Thời sự</a>
+                </li>
+                <% } %>
             </ul>
         </div>
     </div>
@@ -328,10 +331,10 @@
             <ul class="row image m-0" id="image">
                 <!-- 4 ảnh trung tâm bất động sản -->
                 <% for( let index=0; index < 4; index++ ) { %>
-                    <li class="">
-                        <img src="/assets/img/img_3.png " alt=" " class="img-fluid" />
-                    </li>
-                    <% } %>
+                <li class="">
+                    <img src="/assets/img/img_3.png " alt=" " class="img-fluid" />
+                </li>
+                <% } %>
             </ul>
         </div>
     </div>
@@ -343,16 +346,16 @@
         <div class="row business">
             <!-- 3 dự án bất động sản -->
             <% for( let index=0; index < 3; index++ ) { %>
-                <div class="business-one">
-                    <img src="/assets/img/ct01.jpg" class="img-fluid" alt="" />
-                    <div class="business-name">HÀ ĐÔ CHARM VILLAS</div>
-                    <div class="business-infor">
-                        Dự án Hà Đô Charm Villas nằm trên địa phận xã An Thượng và Song
-                        Phương, Hoài Đức, Hà Nội
-                    </div>
-                    <a href="" class="more">Xem thêm</a>
+            <div class="business-one">
+                <img src="/assets/img/ct01.jpg" class="img-fluid" alt="" />
+                <div class="business-name">HÀ ĐÔ CHARM VILLAS</div>
+                <div class="business-infor">
+                    Dự án Hà Đô Charm Villas nằm trên địa phận xã An Thượng và Song
+                    Phương, Hoài Đức, Hà Nội
                 </div>
-                <% } %>
+                <a href="" class="more">Xem thêm</a>
+            </div>
+            <% } %>
         </div>
     </div>
     <div class="container-fluid p-0 part_9">
@@ -388,14 +391,14 @@
             <div class="col-7 list m-auto">
                 <!-- list danh sách giải đáp câu hỏi. Hiển thị khoảng 6 câu-->
                 <% for( let index=0; index < 6; index++ ) { %>
-                    <div class="one-question"><a href="">1. Apading là gì?</a></div>
-                    <% } %>
-                        <a href="" class="more">
-                            <div class="see-more">
-                                <span>SEE MORE</span>
-                                <i class="fas fa-angle-double-right"></i>
-                            </div>
-                        </a>
+                <div class="one-question"><a href="">1. Apading là gì?</a></div>
+                <% } %>
+                <a href="" class="more">
+                    <div class="see-more">
+                        <span>SEE MORE</span>
+                        <i class="fas fa-angle-double-right"></i>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
